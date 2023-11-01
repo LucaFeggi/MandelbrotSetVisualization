@@ -1,0 +1,4 @@
+D:\Users\LUCA\Desktop\MandelbrotFractal\x64\Debug\MandelbrotFractal.exe
+D:\Users\LUCA\Desktop\RipensaTuMandelbrot\x64\Debug\MandelbrotFractal.exe
+D:\Users\LUCA\Desktop\TuoMandelbrot\x64\Debug\MandelbrotFractal.exe
+D:\Users\LUCA\Desktop\MandelbrotSet\x64\Debug\MandelbrotFractal.exe
