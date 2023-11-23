@@ -48,6 +48,25 @@ void Simulation::Zoom(bool Zoom) {
 	}
 }
 
+void Simulation::Translation(int direction) {
+    if (direction == 0) {
+		FractalTopLeft.y += ZoomTopLeft.y;
+		FractalBottomRight.y += ZoomBottomRight.y;
+    }
+    else if (direction == 1) {
+		FractalTopLeft.y -= ZoomTopLeft.y;
+		FractalBottomRight.y -= ZoomBottomRight.y;
+    }
+    else if (direction == 2) {
+		FractalTopLeft.x -= ZoomTopLeft.x;
+		FractalBottomRight.x -= ZoomBottomRight.x;
+    }
+    else if (direction == 3) {
+		FractalTopLeft.x += ZoomTopLeft.x;
+		FractalBottomRight.x += ZoomBottomRight.x;
+    }
+}
+
 void Simulation::GetCommands()
 {
 	while (SDL_PollEvent(&Event))
@@ -79,6 +98,22 @@ void Simulation::GetCommands()
 			if(Event.key.keysym.sym == SDLK_q)
 			{
 				Zoom(0);
+			}
+			if(Event.key.keysym.sym == SDLK_UP)
+			{
+				Translation(0);
+			}
+			if(Event.key.keysym.sym == SDLK_DOWN)
+			{
+				Translation(1);
+			}
+			if(Event.key.keysym.sym == SDLK_RIGHT)
+			{
+				Translation(2);
+			}
+			if(Event.key.keysym.sym == SDLK_LEFT)
+			{
+				Translation(3);
 			}
 		}
 	}
