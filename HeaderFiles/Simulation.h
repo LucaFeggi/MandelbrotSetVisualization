@@ -3,6 +3,8 @@
 #include "Vec2.h"
 
 #include <SDL.h>
+#include <SDL_events.h>
+#include <SDL_keyboard.h>
 #include <SDL_ttf.h>
 #include <string>
 
@@ -13,6 +15,7 @@ class Simulation{
 		void RenderText(std::string TextString, SDL_Surface *TextSurface, int x, int y);
 		void GetCommands();
 		void Zoom(bool Zoom);
+        void Translation(int direction);
 		void Algorithm();
 		void Render();
 		void Cycle();
