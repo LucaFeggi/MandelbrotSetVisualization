@@ -1,0 +1,69 @@
+\input{config/config}
+
+\begin{document}
+
+\selectlanguage{english}
+
+% TABLE OF CONTENT
+
+\newpage
+\pagenumbering{roman} % Roman Numbering for table of content and before
+%\pagenumbering{gobble} %no numbers
+
+\pagestyle{plain} % avoid fancy headers and footer in table of content
+\tableofcontents
+\newpage
+
+
+
+
+
+
+
+% HEADER FOOTER
+
+\pagestyle{fancy} % back to fancy headers and footer in table of content
+%\pagestyle{plain} % show only page numbers
+%\pagestyle{headings} % show only page numbers
+%\pagestyle{myheadings} % show only page numbers
+%\pagestyle{empty} % no headers and footers
+%\thispagestyle{plain} % show only page numbers
+
+\fancyhf{} % clear header and footer
+
+
+%\thepage
+%\thechapter
+%\thesection
+%\chaptername
+%\chaptermark
+
+% RO    right in odd pages
+% LE    left in even pages
+% CE    center in even pages
+
+
+
+%\fancyhead[RO,LE]{\textbf{Software Engineering}}
+%\fancyhead[RE]{\chaptermark \chaptername \quad \thechapter \quad \thepage}
+%\fancyhead[LO]{\thepage \quad chapter Title}
+%\fancyhead[RO,LE]{}
+%\fancyhead[RE,LO]{\rightmark}
+%\fancyhead[RO,LE]{\leftmark}
+
+\fancyhead[LO]{\nouppercase{\leftmark aaa}}
+\fancyhead[RE]{\nouppercase{\rightmark bbb}}
+
+\fancyfoot[LO]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\fancyfoot[RE]{Page: \thepage \hspace{1pt} of \pageref{LastPage}}
+
+\pagenumbering{arabic}
+\cleardoublepage % Empty page before the start of the next part
+
+
+% PART
+\input{text/part}
+
+
+
+\end{document}

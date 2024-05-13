@@ -1,0 +1,13 @@
+\babel@toc {spanish}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}todo}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}hologram}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}fractal}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}theory}{4}{section.3.1}%
+\contentsline {chapter}{\numberline {4}mandelbrot set}{5}{chapter.4}%
+\contentsline {chapter}{\numberline {5}image}{10}{chapter.5}%
+\contentsline {section}{\numberline {5.1}file format}{10}{section.5.1}%
+\contentsline {section}{\numberline {5.2}greyscale}{11}{section.5.2}%
+\contentsline {section}{\numberline {5.3}rgb}{11}{section.5.3}%
+\contentsline {chapter}{\numberline {6}integer}{13}{chapter.6}%

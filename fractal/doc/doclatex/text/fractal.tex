@@ -1,0 +1,342 @@
+\chapter{todo/revision history}
+\begin{verbatim}
+TODO
+functionality
+    numeric calculus 
+        range/interval/window size
+        precision abcisses, ordenate axis/resolution of image
+        maximum module
+            coordinates c where maximum module
+        number of elements
+
+model
+    mandelbrot set sequence
+    beloging to mandelbrot set  
+
+
+    fractal boundary
+    module of a complex number
+
+    data structure
+        big numbers
+            many significant digits
+        
+        cartesian coordenates
+            real and imaginary parts of mandelbrot set's elements
+
+view
+    cartesian representation
+
+
+REVISION HISTORY
+
+
+16/01/2024   15:15-17:00    fractal theory
+                            complex number library
+                            printing module-library
+                            mandelbrot algorithm code
+
+18/01/2024   16:00-19:00    mandelbrot theory
+                            mandelbrot algorithm
+                            traverse algorithm
+
+20/01/2024   10:00-11:00    data print
+                            precision
+                            isMandelbrotElement()
+\end{verbatim}
+
+
+
+\chapter{hologram}
+\chapter{fractal}
+\section{theory}
+\noindent \url{https://en.wikipedia.org/wiki/Fractal}\\
+\\
+a fractal is a geometrical shape\\
+a curve\\
+\\
+a plane\\
+Sierpiński carpet\\
+the technique of subdividing a shpe into smaller copies of itself
+and removing one or more copies\\
+\url{https://en.wikipedia.org/wiki/Sierpi%C5%84ski_carpet}
+\\
+a three dimensions, cubes\\
+Menger sponge\\
+\url{https://en.wikipedia.org/wiki/Menger_sponge}\\
+
+a function/equation\\
+increase presision in\\
+domain\\
+different, and not necessarily more precise only,\\
+image\\
+\\
+infinitely increase in precision\\
+\\
+because sequence defined recursively\\
+
+\chapter{mandelbrot set}
+\url{https://en.wikipedia.org/wiki/Mandelbrot_set}
+\url{https://ics.uci.edu/~eppstein/junkyard/mand-area.html}
+\url{https://math.stackexchange.com/questions/1134054/proof-of-x-intersection-of-the-mandelbrot-set}
+\url{https://complex-analysis.com/content/mandelbrot_set.html}
+\\
+\noindent buddhabrot representation\\
+\url{https://www.kaggle.com/code/wgunderwood/the-mandelbrot-set}\\
+\begin{verbatim}
+    definition
+    ----------
+        Mandelbrot set 'M'
+            two-dimensional set defined in the complex-number plane
+
+            compact set
+                since it is closed (no punctures)
+                and bound subset (no missing points)
+                    contained in the closed disk of radius 2 around an origin (z0=0+0j)
+
+            element/point 'c' is in 'M'
+                if
+                    module '|z|' complex number 'z' in sequence f(z) = z^2 + c, defined recursively by function
+                    absolute value of z_{n}, |z_{n}| <= 2, for all n >= 0
+
+                otherwise 
+                    absolute value exceeds 2, the sequence will escape to inifinity therefore not in 'M'
+
+            sequence
+            ----------
+                origin      o = or + oi·j
+                            z0 = zr0 + zi0·j
+                            z0 = o
+                            zr0 = or
+                            zi0 = oi
+
+                distance    d0 = dr0 + di0·j
+                               = z0 - o
+                               = zr0 + zi0·j - or - oi·j
+                               = zr0-or + (zi0-oi)·j
+                               = or-or + (oi-oi)·j
+                               = 0 + 0·j
+    
+                candidate   c = a + b·i 
+
+                |z0|+2
+                f(z) = z^2 + c is <= |z0|+2
+
+                complex number z0 =             0 + 0i                          ;   |z0|   =     (a^2 + b^2)^1/2    <= |z0| + 2
+                complex number z1 = f(z0)       = z0^2 + c  = (a+bi)^2 + c      ;   |z1|   =     |c|                =  (a^2 + b^2)^1/2
+                complex number z2 = f(z1)       = z1^2 + c  = c^2 + c           ;   |z2|   =     |c^2 + c|          = 
+                complex number z3 = f(z2)       = z2^2 + c  = (c^2 + c)^2 + c
+
+                complex number |z0|   =     (0^2 + 0^2i)^1/2
+                complex number |z1|   = 
+                complex number |z2|   = 
+                complex number |z3|   = 
+                
+                no diverge to infinity
+
+    axis intersection
+    ----------
+        the intersection of 'M' with the real axis is the interval [-2, 1/4]
+        abscissa    x-axis  real part
+        ordinate    y-axis  imaginary part
+
+    fractal boundary
+        definition 
+            boundary of the Mandelbrot set 'M' is a fractal curve.
+            boundary complex numbers which magnitude is 2, threshold must be at least 2.
+
+            complex number z = -2 + 0i, z = -2
+            has the largest magnitue with in the mandelbrot set
+
+
+
+
+
+
+
+
+JULIA SET
+        if c is held constant and the inital value of 'z' is varied instead, the corresponding Julia set for the point c is obtained.
+
+
+
+
+
+COMPLEX NUMBERS
+        Function module/magnitude |z| of a complex number 'z', z=a+bj
+        https://en.wikipedia.org/wiki/Complex_number
+            z = x + y·j
+            |z| = sqrt(x^2 + y^2)
+
+
+
+
+
+
+
+COMPUTING
+    element 'c' in 'M'
+        maximum number of iterations n=500?
+        all '|z|' <= 2
+
+    element 'c' not in 'M'
+        one '|z|' > 2
+
+        infinity inf=10^8?
+
+    ordenate bounds
+    
+    fractal dimensions
+        cartisian vertix coordinates 
+            (-2.0,2.0), (0.25, 2.0)
+            (-2.0,-2.0), (0.25,-2.0)
+
+
+
+
+COLORING
+    only boundary, in black color
+        2 >= |z| >= 1.995
+    
+    coordinate
+        treating the real and imaginary parts of 'c' as image coordinates
+
+    pixel
+        pixels may be colored according to how soon the sequence
+            |f_{c}(z)|, |f_{c}(f_{c}(z))|, |f_{c}(f_{c}(f_{c}(z)))|
+            crosses an arbitrarily chosen threshold
+                the threshold must be at least 2, as -2 is the complex number 
+                    with the largest magnitude within the set,
+                but otherwise the threshold is arbitrary.
+
+                mandelbrot subset by threshold lower than 2???
+
+    soon
+        number of iteration
+
+    distance
+        difference |2-|z_{i}||, |z_{i}| <= 2, |z_{i+1}| > 2
+
+
+
+
+
+
+    color gradient
+    https://en.wikipedia.org/wiki/Color_gradient
+        axial gradient
+            axial gradient or, also called, linear color gradient
+            segment defined by two points
+            on color for each point of the segment
+
+        color space
+            2d
+                plane (r in [0,255], g in [0,255])
+
+            3d
+                rgba (0-255, 0-255, 0-255, 0-255)
+                2d rgb profiles
+                https://en.wikipedia.org/wiki/Color_gradient#/media/File:Gnuplot_HSV_gradient.png
+                https://en.wikipedia.org/wiki/Color_gradient#/media/File:Matlab_gradient.png
+
+                3d rgb profiles
+                https://en.wikipedia.org/wiki/Color_gradient#/media/File:0_3d_60_75_v.png
+
+HISTORY
+ first
+    Benoit Mandelbrot
+    mathematician
+    coined word 'fractal'
+    wrote influencial book 'The Fractal Geometry of Nature', in 1982.
+    first mandelbrot set image in the cover of 'Scientific American', 1985.
+since then
+\end{verbatim}
+
+\chapter{image}
+\section{file format}
+\begin{verbatim}
+TYPE OF IMAGE FORMAT
+----------------------------------------
+
+raw images
+    camara lenses capture raw information
+
+png images
+    a png is a raster: pixel-based image format
+    stores pixels in a raster format
+    one color channel
+        monochrome or palette index
+    three color channel
+        rgb
+    four color channel
+        rgba, rgb with an alpha channel for transparency
+
+jpg images
+    no alpha channel support
+    color information retained in rgb
+    compression by discarding data
+
+svg
+    not a vector image like svg
+
+raw pixel images dataset
+    http://yann.lecun.com/exdb/mnist/
+
+
+" .:-=+*#\%@"
+" .°*oO#@"
+" _.,-=+:;cba!?0123456789\$W#@"
+
+
+\end{verbatim}
+
+\section{greyscale}
+\begin{verbatim}
+MATRIX OF GREYSCALE MODEL
+https://en.wikipedia.org/wiki/Grayscale
+----------------------------------------
+
+    values in each pixel is a single sample representing only
+the amount of light, intensity of light, luminance, brightness.
+
+    numerical representation of a greyscale
+commonly stored in 8 bits/pixel per sampled pixel
+
+converting color to greyscale
+    no alpha component
+
+    luminance Y_{lineal}
+    Y_{lineal} = 0.2126·R_{linear} + 0.7152·G_{linear} + 0.0722·B_{linear}
+    Y_{lineal} belongs to [0,1]
+
+
+
+\end{verbatim}
+
+\section{rgb}
+\begin{verbatim}
+RGB COLOR MODEL
+https://en.wikipedia.org/wiki/RGB_color_model
+----------------------------------------
+
+truecolor image
+    linear colorspace
+    human perception
+
+additive model
+    addition or combination of primary colors red, green, blue in different intensites
+    zero intensity of each component gives black
+    maximum intensity of each component gives white
+
+three color channels 8 bits per channel, values 0-255 
+     24 bits/pixel
+     (2^8)^3 = 16777216 colors
+\end{verbatim}
+
+
+
+\chapter{integer}
+\noindent gnu libc\\
+integers\\
+\url{https://www.gnu.org/software/libc/manual/html\_node/Integers.html}\\
+
