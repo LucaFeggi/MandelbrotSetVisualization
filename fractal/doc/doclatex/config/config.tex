@@ -1,0 +1,529 @@
+% DOCUMENT
+
+%\documentclass[a4paper, 12pt, spanish, fleqn]{report} % fleqn test align formulas left
+\documentclass[a4paper, 12pt, fleqn]{report} % fleqn test align formulas left
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\geometry{
+	paper=a4paper, % Paper size, change to letterpaper for US letter size
+    paperheight=29.7cm,
+    paperwidth=21cm,
+    includehead,
+    nomarginpar,
+    textwidth=15cm,
+	top=2.5cm, % Top margin
+	bottom=3cm, % Bottom margin
+	left=3cm, % Left margin
+	right=3cm, % Right margin
+	headheight=10mm, % Header height
+	footskip=15mm, % Space from the bottom margin to the baseline of the footer
+	headsep=7.5mm, % Space from the top margin to the baseline of the header
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+
+% LANGUAGES
+
+\usepackage[english, spanish]{babel} % English language hyphenation
+%\usepackage{spanish} % Spanish language hyphenation, date
+%\usepackage{babel-spanish} % Spanish language hyphenation, date
+
+% FONTS
+
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+%\usepackage{courier}
+%\usepackage[nottoc]{tocbibind} %list figures, tables in content
+
+
+    % palentino font
+
+\usepackage{mathpazo} % Use the Palatino font
+\usepackage[protrusion=true, expansion=true]{microtype} % Better typography
+\linespread{1.05} % Increase line spacing slightly; Palatino benefits from a slight increase by default
+
+
+
+
+% FONETIC SYMBOLS
+\usepackage{tipa}
+
+% PART
+
+% removing page numbers in part pages, only for book,report template
+\usepackage{etoolbox}
+\patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{empty}}{}{}
+
+
+% spaces in the table of contents
+
+\usepackage{tocloft}
+
+    % title in table of content
+
+\setlength{\cftbeforetoctitleskip}{-3em}
+\renewcommand{\cfttoctitlefont}{\hfill\LARGE\bfseries\scshape} % added
+\renewcommand{\cftaftertoctitle}{\hfill\vspace{15pt}} % centering and vertical space after of toc title 
+%\renewcommand{\cftaftertoctitle}{\bigskip}
+    
+
+% center part title and number size (zero size to remove it?)
+
+    % title in table of content's parts
+\renewcommand{\cftpartfont}{\hfil\LARGE\bfseries\scshape}
+
+
+\renewcommand{\cftpartleader}{\hfil}
+\setlength{\cftpartnumwidth}{5pt}
+
+% vertical line space
+    % before toc titles
+\setlength{\cftbeforepartskip}{1.5em}
+\setlength{\cftbeforechapskip}{0.5em}
+
+    % after toc titles
+\renewcommand\cftpartafterpnum{\vskip5pt}
+\renewcommand\cftchapafterpnum{\vskip2pt}
+\renewcommand\cftsecafterpnum{\vskip2pt}
+\renewcommand\cftsubsecafterpnum{\vskip2pt}
+
+%  horizontal line space 
+
+    % after toc titles
+\renewcommand\cftchapafterpnum{\hspace*{1.0em}}
+\renewcommand\cftsecafterpnum{\hspace*{2.0em}}
+\renewcommand\cftsubsecafterpnum{\hspace*{3.0em}}
+
+% indent
+\cftsetindents{chapter}{1.25cm}{1.25cm}
+\cftsetindents{section}{2.50cm}{1.00cm}
+\cftsetindents{subsection}{3.75cm}{1.25cm}
+
+
+
+
+
+
+
+% TIME
+\usepackage{datetime}
+
+
+% HYPERREF
+
+\usepackage{hyperref}
+\hypersetup{
+  %hidelinks,
+  colorlinks   = true, % Colours links instead of ugly boxes
+  urlcolor     = black, % Colour for external hyperlinks
+  linkcolor    = black, % Colour of internal links
+  citecolor   = black % Colour of citations
+}
+\usepackage{url}
+
+
+
+% EPIGRAPHS
+
+\usepackage{epigraph}
+
+\setlength\epigraphwidth{.8\textwidth}
+\setlength\epigraphrule{0pt}
+
+
+
+
+
+% IMAGES
+
+\usepackage{graphicx}
+\graphicspath{{image/}}
+
+
+
+% MATH
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+    % mthbb{} 
+
+
+% UNIT
+
+\usepackage{siunitx}
+\usepackage{steinmetz}
+
+
+
+
+% HEADER FOOTER
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\renewcommand{\headrulewidth}{2pt}
+%\renewcommand{\headrulewidth}{0.1pt}
+%\renewcommand{\headrulewidth}{0 pt}
+
+\renewcommand{\footrulewidth}{1pt}
+%\renewcommand{\footrulewidth}{0.1pt}
+%\renewcommand{\footrulewidth}{0 pt}
+
+
+% COLOURS
+
+\usepackage[dvipsnames]{color, xcolor, colortbl}
+%\definecolor{name}{system}{definition}
+\definecolor{Gray}{gray}{0.9}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{Crane}{rgb}{52,109,0}
+\definecolor{Amber}{rgb}{1.0,0.75,0}
+\definecolor{Amberb}{rgb}{1.0,0.49,0}
+\definecolor{mypink1}{rgb}{0.858, 0.188, 0.478}
+\definecolor{mypink2}{RGB}{219, 48, 122}
+\definecolor{mypink3}{cmyk}{0, 0.7808, 0.4429, 0.1412}
+\definecolor{mygray}{gray}{0.6}
+
+
+
+% TABLE
+
+% TABLE MULTICOLUMN
+
+\usepackage{multicol}
+\usepackage{multirow}
+
+% TABLE CAPTION
+
+\usepackage{caption} 
+% package for listings titles
+% package for tables captions
+%  caption same with as tabular envioroment
+%\usepackage[tableposition=top]{caption} % table caption on top
+\captionsetup{
+                labelfont=bf,
+                justification=raggedright,
+                singlelinecheck=false
+            }
+
+\usepackage{subcaption}
+
+\usepackage{floatrow}
+%  Table caption on top
+\floatsetup[table]{capposition=top}
+%  Table caption on bottom 
+%\floatsetup[table]{capposition=below}
+
+% numbering tables only in chapters, in non-chapters table numbering
+% + starts at zero.
+\usepackage{chngcntr}
+\counterwithin{table}{chapter}
+
+% TABLE RULE
+
+\usepackage{booktabs} % Required for better horizontal rules in tables
+
+% TABLE LONG TABLE
+
+\usepackage{longtable}
+\setcounter{LTchunksize}{10}
+
+% centered is default
+%\begin{longtable}[c]{...}
+%\setlength{\LTright}{0pt} % long tables aligned left
+%\setlength{\LTleft}{0pt} % long tables aligned left
+%\setlength{\LTright}{\fill} % long tables aligned left
+%\setlength{\LTleft}{\fill} % long tables aligned left
+%\LTcapwidth=\textwidth
+
+% TABLE DASH LINES
+
+\usepackage{arydshln} % dash lines in tables \hdashline
+% package must be installed after package longtable
+
+% TABLE COLUMN FORMAT - JUSTIFICATION FORMAT
+\usepackage{array}
+
+
+
+
+% CHEMSCHEMES
+\usepackage{chemscheme}
+
+
+
+% ITEMIZED,ENUMERATED LISTS
+% left margins [leftmargin=5.5mm]
+\usepackage{enumitem}
+\newlist{myenumerate}{enumerate}{1}
+\setlist[myenumerate,1]{label=\arabic*. , leftmargin=*, before=\color{orange}, font=bfseries, format=\color{red}}
+
+
+
+
+
+
+% LISTINGS
+% lstautogobble, removes begging whitespaces and cares about indentation
+\usepackage{listings,lstautogobble}
+
+% accents in text within listings enviroment
+% goes with \lstset{inputencoding=utf8/latin1}
+\usepackage{listingsutf8}
+
+% Importing code from file
+%\lstinputlisting[language=Octave]{BitXorMatrix.m}
+%\lstinputlisting[language=Python]{source_filename.py}
+%\lstinputlisting[language=Python, firstline=37, lastline=45]{source_filename.py}
+%\lstinputlisting[language=Python, linerange={37-45,48-50}]{source_filename.py}
+
+\lstdefinestyle{mystyle}{
+    autogobble=true;
+    %escapechar=\,
+    %mathescape=true,
+    %
+    frame=single,
+    %frame=lines,
+    frame=tblr,
+    framerule=10pt,
+    rulecolor=\color{green},
+    %rulesep=1pt,
+    %
+    tabsize=4,
+    % 
+    basicstyle = \fontsize{12}{13}\selectfont\ttfamily,
+    columns = fullflexible,
+    %
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    %numbers=left,
+    %stepnumber=1,
+    %numbersep=3pt,
+    %firstnumber=1,
+    % 
+    backgroundcolor=\color{white},
+    %
+    extendedchars = false,
+    breaklines = true,
+    breakatwhitespace=true,
+    showtabs = false,
+    showspaces = false,
+    showstringspaces=false,
+    %
+    captionpos=b,
+    %captionpos=t,
+    % 
+    % DISTANCE TO PAGE MARGIN
+    aboveskip=10mm,                      % space between top text and code 
+    belowskip=10mm,                     % space between bottom code and text
+    abovecaptionskip=8mm,
+    belowcaptionskip=0mm,
+    %belowcaptionskip=.10\baselineskip,
+    %
+    framesep=5mm,                       % code margins to frame
+    xleftmargin = 0.0\textwidth,        % code left margin to frame
+    xrightmargin = 0.0\textwidth,       % code right margin to frame
+    framextopmargin=0mm,
+    framexbottommargin=0mm,
+    framexleftmargin=0mm,
+    framexrightmargin=0mm,
+    %
+}
+
+\lstdefinestyle{mystyle2}{
+    autogobble=true,
+    %language = Java,
+    %float=!h,
+    %frame=tblr,
+    %
+    captionpos=b,
+    %
+    backgroundcolor = \color{white},
+    %backgroundcolor = \color{pink},
+    %backgroundcolor=\color{lightgray},
+    %
+    extendedchars = false,
+    breaklines = true,
+    breakatwhitespace=true,
+    showtabs = false,
+    showspaces = false,
+    showstringspaces=false,
+    %
+    aboveskip=5em,
+    belowskip=2em,
+    abovecaptionskip=1em,
+    belowcaptionskip=.10\baselineskip,
+    % 
+    numberstyle=\tiny\color{gray},
+    %numberstyle = \tiny\color{black},
+    %numberstyle = \tiny\color{red},
+    tabsize=4,
+    %numbers=left,
+    numbers=none,
+    % 
+    basicstyle = \fontsize{12}{13}\selectfont\ttfamily,
+    %basicstyle = \small,
+    columns = fullflexible,
+    % 
+    keywordstyle=\color{black},
+    %keywordstyle=\color{blue},
+    stringstyle=\color{black},
+    %stringstyle=\color{red},
+    commentstyle=\color{Green}\ttfamily
+    %commentstyle=\color{black},
+    %commentstyle=\color{green},
+    % 
+}
+
+
+\lstset{style=mystyle}
+
+
+\colorlet{listingscolor}{black!15}
+
+\lstnewenvironment{mylistings}
+  {\lstset{language=C++,
+    backgroundcolor=\color{listingscolor}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+    }
+}
+{}
+
+
+
+\lstnewenvironment{cpptable} {
+    \lstset{
+        language=C++,
+        basicstyle=\footnotesize,% basic font setting
+    }
+}
+{}
+
+
+% setting the font to courier
+% https://tex.stackexchange.com/questions/33685/set-the-font-family-for-lstlisting
+% https://tex.stackexchange.com/questions/378623/how-can-i-get-a-list-of-all-fontfamily-fontseries-combinations/378626#378626
+\lstnewenvironment{revhistable} {
+    \lstset{
+        basicstyle=\fontfamily{ppl}\normalsize,
+        %inputencoding=utf8/latin1,
+        inputencoding=utf8,
+        %inputencoding=latin1,
+        %extendedchars=true,
+        frame=none,
+        %frame=tblr,
+        numbers=none,
+        backgroundcolor = \color{white},
+        xleftmargin=0.0cm, 
+        xrightmargin=0.2\textwidth,
+        framexleftmargin=0.0cm,
+        framexrightmargin=-1.5cm,
+        aboveskip=0.0cm,
+        escapeinside={(*}{*)},
+        literate=
+        {á}{{\'a}}1
+        {à}{{\`a}}1
+        {ã}{{\~a}}1
+        {é}{{\'e}}1
+        {ê}{{\^e}}1
+        {í}{{\'i}}1
+        {ó}{{\'o}}1
+        {õ}{{\~o}}1
+        {ú}{{\'u}}1
+        {ü}{{\"u}}1
+        {ç}{{\c{c}}}1
+    }
+}
+{}
+
+
+% Caption Title Name "Program"
+\renewcommand{\lstlistingname}{Program} 
+
+% Caption format
+% https://latex-tutorial.com/caption-customization-latex/
+%\DeclareCaptionFont{font1}{\color{black}}
+%\DeclareCaptionFormat{listing1}{\rule{\dimexpr\textwidth+17pt\relax}{0.4pt}\vskip1pt#1#2#3}
+%\DeclareCaptionFormat{listing2}{
+%    \colorbox[cmyk]{0.43, 0.35, 0.35,0.01 }{\parbox{\textwidth}{\hspace{15pt}#1#2#3}
+%    }
+%  }
+%\captionsetup[lstlisting]{singlelinecheck=false, margin=0mm, labelfont={font1}, textfont={font1}, font={sf, bf,footnotesize}}
+%\captionsetup[lstlisting]{singlelinecheck=false, margin=0pt, labelfont={font1}, textfont={font1}, font={sf, bf,footnotesize}}
+%\captionsetup[lstlisting]{format=listing2, singlelinecheck=false, margin=0pt, labelfont={font1}, textfont={font1}, font={sf, bf,footnotesize}}
+
+
+
+
+% Lists
+
+%\renewcommand*\contentsname{Table of Contents} % change Content name
+%\renewcommand\listfigurename{Lista de Figuras}
+%\renewcommand\listtablename{Lista de Tablas}
+
+
+
+
+% FLOATS
+
+\usepackage{float} % [H] option, non floating figures, in-text
+\usepackage{newfloat} % Creating New Float Enviroments
+    \DeclareFloatingEnvironment[placement={!ht},name=List]{mylist}
+
+
+
+% DRAWING
+
+\usepackage{pgfplots}
+
+% TIKZ
+
+\usepackage{tikz}
+\usepackage[siunitx, RPvoltages, europeanresistors]{circuitikz}
+\usetikzlibrary{arrows, shapes.geometric}
+
+
+\tikzset{
+  treenode/.style = {align=center, inner sep=0pt, text centered,
+    font=\sffamily},
+  arnn/.style = {treenode, circle, white, font=\sffamily\bfseries, draw=black,
+    fill=black, text width=1.5em},% arbre rouge noir, noeud noir
+  arnr/.style = {treenode, circle, red, draw=red,
+    text width=1.5em, very thick},% arbre rouge noir, noeud rouge
+  arnx/.style = {treenode, rectangle, draw=black,
+    minimum width=0.5em, minimum height=0.5em}% arbre rouge noir, nil
+}
+
+% Cronograms
+
+\newcounter{wavenum} % Cronogramas
+
+% subscripts out math enviroment
+
+\usepackage{relsize}
+\def\textsubscript#1{\ensuremath{_{\mbox{\textscale{.6}{#1}}}}}
+
+% IC Circuit
+
+\usepackage{relsize}
+\usepackage{pbox}
+\newcommand{\ctikzlabel}[2]{\pbox{\textwidth}{#1\\#2}} % multiple-lines labels
+
+
+
+% BIBLIOGRAPHY
+% Numbering Bibliography
+
+%\usepackage[superscript]{cite} % numbering in supperscript
+\usepackage[superscript,biblabel]{cite} % numbering in supperscript
+
+% inclusion in table Content
+
+% without toc numbering
+%\usepackage[nottoc, notlof,notlot]{tocbibind} 
+
+% with toc numbering
+% \usepackage[nottoc, numbib,notlof,notlot]{tocbibind} 
+
+
