@@ -27,6 +27,26 @@ Simulation::~Simulation() {
 	SDL_Quit();
 }
 
+void Simulation::Traslation(int direction) {
+	if (direction == 0) {
+		FractalTopLeft.y += ZoomTopLeft.y;
+		FractalBottomRight.y += ZoomBottomRight.y;
+	}
+	else if (direction == 1) {
+		FractalTopLeft.y -= ZoomTopLeft.y;
+		FractalBottomRight.y -= ZoomBottomRight.y;
+	}
+	else if (direction == 2) {
+		FractalTopLeft.x -= ZoomTopLeft.x;
+		FractalBottomRight.x -= ZoomBottomRight.x;
+	}
+	else if (direction == 3) {
+		FractalTopLeft.x += ZoomTopLeft.x;
+		FractalBottomRight.x += ZoomBottomRight.x;
+	}
+}
+
+
 void Simulation::RenderText(std::string TextString, SDL_Surface *TextSurface, int x = 0, int y = 0) {
 	TextSurface = TTF_RenderText_Solid(Font, TextString.c_str(), White);
 	SDL_Rect TextRect = {x, y, 0, 0};
@@ -79,6 +99,22 @@ void Simulation::GetCommands()
 			if(Event.key.keysym.sym == SDLK_q)
 			{
 				Zoom(0);
+			}
+			if (Event.key.keysym.sym == SDLK_UP)
+			{
+				Traslation(1);
+			}
+			if (Event.key.keysym.sym == SDLK_DOWN)
+			{
+				Traslation(0);
+			}
+			if (Event.key.keysym.sym == SDLK_RIGHT)
+			{
+				Traslation(3);
+			}
+			if (Event.key.keysym.sym == SDLK_LEFT)
+			{
+				Traslation(2);
 			}
 		}
 	}
